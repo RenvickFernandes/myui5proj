@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0"
+xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+xmlns="http://docs.oasis-open.org/odata/ns/edm">
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+</edmx:Reference>
+<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='S4SD')/$value">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+</edmx:Reference>
+<edmx:DataServices>
+    <Schema Namespace="com.sap.gateway.srvd_a2x.api_digitalvehsalesorder.v0001" Alias="SAP__self">
+        <Annotation Term="SAP__core.SchemaVersion" String="1.1.0"/>
+        <EntityType Name="A_DigitalVehSlsOrdConfign_Type">
+            <Key>
+                <PropertyRef Name="SalesDocument"/>
+                <PropertyRef Name="SalesDocumentItem"/>
+                <PropertyRef Name="Characteristic"/>
+            </Key>
+            <Property Name="SalesDocument" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            <Property Name="SalesDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6"/>
+            <Property Name="Characteristic" Type="Edm.String" Nullable="false" MaxLength="30"/>
+            <Property Name="ConfigurationNumber" Type="Edm.String" Nullable="false" MaxLength="18"/>
+            <Property Name="IsDeleted" Type="Edm.String" Nullable="false" MaxLength="1"/>
+            <NavigationProperty Name="_DigitalVehSlsOrdConfignValTP" Type="Collection(com.sap.gateway.srvd_a2x.api_digitalvehsalesorder.v0001.A_DigitalVehSlsOrdConfignVal_Type)" Partner="_DigitalVehSlsOrdConfign">
+                <OnDelete Action="Cascade"/>
+            </NavigationProperty>
+            <NavigationProperty Name="_DigitalVehSlsOrdItemTP_2" Type="com.sap.gateway.srvd_a2x.api_digitalvehsalesorder.v0001.A_DigitalVehicleSlsOrdItem_2_Type" Nullable="false" Partner="_DigitalVehSlsOrdConfignTP">
+                <ReferentialConstraint Property="SalesDocument" ReferencedProperty="SalesDocument"/>
+                <ReferentialConstraint Property="SalesDocumentItem" ReferencedProperty="SalesDocumentItem"/>
+            </NavigationProperty>
+        </EntityType>
+        <EntityType Name="A_DigitalVehSlsOrdConfignVal_Type">
+            <Key>
+                <PropertyRef Name="SalesDocument"/>
+                <PropertyRef Name="SalesDocumentItem"/>
+                <PropertyRef Name="VariantConfigurationValueID"/>
+                <PropertyRef Name="CharcInternalID"/>
+            </Key>
+            <Property Name="SalesDocument" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            <Property Name="SalesDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6"/>
+            <Property Name="VariantConfigurationValueID" Type="Edm.String" Nullable="false" MaxLength="150"/>
+            <Property Name="CharcInternalID" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            <Property Name="Characteristic" Type="Edm.String" Nullable="false" MaxLength="30"/>
+            <Property Name="CharcValue" Type="Edm.String" Nullable="false" MaxLength="70"/>
+            <Property Name="CharcFromDate" Type="Edm.Date"/>
+            <Property Name="CharcFromTime" Type="Edm.TimeOfDay" Nullable="false"/>
+            <Property Name="CharcFromAmount" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+            <Property Name="CharacteristicCurrency" Type="Edm.String" Nullable="false" MaxLength="3"/>
+            <Property Name="CharcFromNumericValue" Type="Edm.Double" Nullable="false"/>
+            <Property Name="ConfigurationNumber" Type="Edm.String" Nullable="false" MaxLength="18"/>
+            <Property Name="UnitOfMeasureTechnicalName" Type="Edm.String" Nullable="false" MaxLength="8"/>
+            <NavigationProperty Name="_DigitalVehSlsOrdConfign" Type="com.sap.gateway.srvd_a2x.api_digitalvehsalesorder.v0001.A_DigitalVehSlsOrdConfign_Type" Nullable="false" Partner="_DigitalVehSlsOrdConfignValTP">
+                <ReferentialConstraint Property="SalesDocument" ReferencedProperty="SalesDocument"/>
+                <ReferentialConstraint Property="SalesDocumentItem" ReferencedProperty="SalesDocumentItem"/>
+                <ReferentialConstraint Property="Characteristic" ReferencedProperty="Characteristic"/>
+            </NavigationProperty>
+            <NavigationProperty Name="_DigitalVehSlsOrdItemTP_2" Type="com.sap.gateway.srvd_a2x.api_digitalvehsalesorder.v0001.A_DigitalVehicleSlsOrdItem_2_Type"/>
+        </EntityType>
+        <EntityType Name="A_DigitalVehicleSlsOrdItem_2_Type">
+            <Key>
+                <PropertyRef Name="SalesDocument"/>
+                <PropertyRef Name="SalesDocumentItem"/>
+            </Key>
+            <Property Name="SalesDocument" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            <Property Name="SalesDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6"/>
+            <Property Name="VMSVehicleUUID" Type="Edm.Guid"/>
+            <Property Name="Batch" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+            <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18"/>
+            <Property Name="ConfigurationNumber" Type="Edm.String" Nullable="false" MaxLength="18"/>
+            <Property Name="SoldToParty" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            <Property Name="SoldToPartyName" Type="Edm.String" Nullable="false" MaxLength="80"/>
+            <Property Name="BillToParty" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            <Property Name="BillToPartyName" Type="Edm.String" Nullable="false" MaxLength="80"/>
+            <Property Name="PayerParty" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            <Property Name="PayerPartyName" Type="Edm.String" Nullable="false" MaxLength="80"/>
+            <Property Name="ShipToParty" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            <Property Name="ShipToPartyName" Type="Edm.String" Nullable="false" MaxLength="80"/>
+            <Property Name="CreationDate" Type="Edm.Date"/>
+            <Property Name="SalesOrderDate" Type="Edm.Date"/>
+            <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4"/>
+            <Property Name="SalesOrganizationName" Type="Edm.String" Nullable="false" MaxLength="20"/>
+            <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+            <Property Name="DistributionChannelName" Type="Edm.String" Nullable="false" MaxLength="20"/>
+            <Property Name="OrganizationDivision" Type="Edm.String" Nullable="false" MaxLength="2"/>
+            <Property Name="DivisionName" Type="Edm.String" Nullable="false" MaxLength="20"/>
+            <Property Name="SalesOrderType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+            <Property Name="TotalNetAmount" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+            <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="3"/>
+            <Property Name="RequestedDeliveryDate" Type="Edm.Date"/>
+            <Property Name="PurchaseOrderByCustomer" Type="Edm.String" Nullable="false" MaxLength="35"/>
+            <Property Name="CustomerPurchaseOrderDate" Type="Edm.Date"/>
+            <Property Name="ConfirmedDeliveryDate" Type="Edm.Date"/>
+            <Property Name="RequestedQuantity" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3"/>
+            <Property Name="RequestedQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+            <Property Name="DigitalVehicleReferenceID" Type="Edm.String" Nullable="false" MaxLength="35"/>
+            <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd_a2x.api_digitalvehsalesorder.v0001.SAP__Message)" Nullable="false"/>
+            <NavigationProperty Name="_DigitalVehSlsOrdConfignTP" Type="Collection(com.sap.gateway.srvd_a2x.api_digitalvehsalesorder.v0001.A_DigitalVehSlsOrdConfign_Type)" Partner="_DigitalVehSlsOrdItemTP_2">
+                <OnDelete Action="Cascade"/>
+            </NavigationProperty>
+        </EntityType>
+        <ComplexType Name="SAP__Message">
+            <Property Name="code" Type="Edm.String" Nullable="false"/>
+            <Property Name="message" Type="Edm.String" Nullable="false"/>
+            <Property Name="target" Type="Edm.String"/>
+            <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+            <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+            <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+            <Property Name="longtextUrl" Type="Edm.String"/>
+        </ComplexType>
+        <EntityContainer Name="Container">
+            <EntitySet Name="DigitalVehicleSlsOrdItem_2" EntityType="com.sap.gateway.srvd_a2x.api_digitalvehsalesorder.v0001.A_DigitalVehicleSlsOrdItem_2_Type">
+                <NavigationPropertyBinding Path="_DigitalVehSlsOrdConfignTP" Target="DigitalVehSlsOrdConfign"/>
+            </EntitySet>
+            <EntitySet Name="DigitalVehSlsOrdConfign" EntityType="com.sap.gateway.srvd_a2x.api_digitalvehsalesorder.v0001.A_DigitalVehSlsOrdConfign_Type">
+                <NavigationPropertyBinding Path="_DigitalVehSlsOrdConfignValTP" Target="DigitalVehSlsOrdConfignVal"/>
+                <NavigationPropertyBinding Path="_DigitalVehSlsOrdItemTP_2" Target="DigitalVehicleSlsOrdItem_2"/>
+            </EntitySet>
+            <EntitySet Name="DigitalVehSlsOrdConfignVal" EntityType="com.sap.gateway.srvd_a2x.api_digitalvehsalesorder.v0001.A_DigitalVehSlsOrdConfignVal_Type">
+                <NavigationPropertyBinding Path="_DigitalVehSlsOrdConfign" Target="DigitalVehSlsOrdConfign"/>
+                <NavigationPropertyBinding Path="_DigitalVehSlsOrdItemTP_2" Target="DigitalVehicleSlsOrdItem_2"/>
+            </EntitySet>
+        </EntityContainer>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfign_Type/SalesDocument">
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Sales Document"/>
+            <Annotation Term="SAP__common.Heading" String="Sales Doc."/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN_VA"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfign_Type/SalesDocumentItem">
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.IsDigitSequence"/>
+            <Annotation Term="SAP__common.Label" String="Sales Document Item"/>
+            <Annotation Term="SAP__common.Heading" String="SDItem"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=POSNR_VA"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfign_Type/Characteristic">
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Characteristic Name"/>
+            <Annotation Term="SAP__common.Heading" String="Char. Name"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATNAM"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfign_Type/ConfigurationNumber">
+            <Annotation Term="SAP__common.IsDigitSequence"/>
+            <Annotation Term="SAP__common.Label" String="Internal Object No."/>
+            <Annotation Term="SAP__common.Heading" String="Object No."/>
+            <Annotation Term="SAP__common.QuickInfo" String="Internal Object Number"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CUOBJ"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfign_Type/IsDeleted">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Single-Character Flag"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfign_Type/_DigitalVehSlsOrdConfignValTP">
+            <Annotation Term="SAP__common.Composition"/>
+        </Annotations>
+        <Annotations Target="SAP__self.Container/DigitalVehSlsOrdConfign">
+            <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                <Record>
+                    <PropertyValue Property="RestrictedProperties">
+                        <Collection>
+                            <Record>
+                                <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_DigitalVehSlsOrdConfignValTP"/>
+                                <PropertyValue Property="InsertRestrictions">
+                                    <Record>
+                                        <PropertyValue Property="Insertable" Bool="true"/>
+                                    </Record>
+                                </PropertyValue>
+                            </Record>
+                        </Collection>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.SearchRestrictions">
+                <Record>
+                    <PropertyValue Property="Searchable" Bool="false"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.InsertRestrictions">
+                <Record>
+                    <PropertyValue Property="Insertable" Bool="false"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                <Record>
+                    <PropertyValue Property="Deletable" Bool="false"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                <Record>
+                    <PropertyValue Property="Updatable" Bool="false"/>
+                    <PropertyValue Property="NonUpdatableNavigationProperties">
+                        <Collection>
+                            <PropertyPath>_DigitalVehSlsOrdConfignValTP</PropertyPath>
+                            <PropertyPath>_DigitalVehSlsOrdItemTP_2</PropertyPath>
+                        </Collection>
+                    </PropertyValue>
+                    <PropertyValue Property="QueryOptions">
+                        <Record>
+                            <PropertyValue Property="SelectSupported" Bool="true"/>
+                        </Record>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfign_Type">
+            <Annotation Term="SAP__common.Label" String="Digital Vehicle Sales Order Config"/>
+            <Annotation Term="SAP__common.SemanticKey">
+                <Collection>
+                    <PropertyPath>Characteristic</PropertyPath>
+                    <PropertyPath>SalesDocumentItem</PropertyPath>
+                    <PropertyPath>SalesDocument</PropertyPath>
+                </Collection>
+            </Annotation>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/SalesDocument">
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Sales Document"/>
+            <Annotation Term="SAP__common.Heading" String="Sales Doc."/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN_VA"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/SalesDocumentItem">
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.IsDigitSequence"/>
+            <Annotation Term="SAP__common.Label" String="Sales Document Item"/>
+            <Annotation Term="SAP__common.Heading" String="SDItem"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=POSNR_VA"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/VariantConfigurationValueID">
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.Label" String="Value ID"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Value ID for a characteristic value"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/CharcInternalID">
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.IsDigitSequence"/>
+            <Annotation Term="SAP__common.Label" String="Characteristic Internal ID"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/Characteristic">
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Characteristic Name"/>
+            <Annotation Term="SAP__common.Heading" String="Char. Name"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATNAM"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/CharcFromAmount">
+            <Annotation Term="SAP__measures.ISOCurrency" Path="CharacteristicCurrency"/>
+            <Annotation Term="SAP__common.Label" String="Lower Boundary for Currency Field"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/CharacteristicCurrency">
+            <Annotation Term="SAP__common.IsCurrency"/>
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Currency Key"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/ConfigurationNumber">
+            <Annotation Term="SAP__common.IsDigitSequence"/>
+            <Annotation Term="SAP__common.Label" String="IBase component"/>
+            <Annotation Term="SAP__common.QuickInfo" String="IB: Component (instance)"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=IB_INSTANCE"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type">
+            <Annotation Term="SAP__common.Label" String="Digital Vehicle Sales Order Config Val"/>
+            <Annotation Term="SAP__common.SemanticKey">
+                <Collection>
+                    <PropertyPath>Characteristic</PropertyPath>
+                    <PropertyPath>SalesDocumentItem</PropertyPath>
+                    <PropertyPath>SalesDocument</PropertyPath>
+                </Collection>
+            </Annotation>
+        </Annotations>
+        <Annotations Target="SAP__self.Container/DigitalVehSlsOrdConfignVal">
+            <Annotation Term="SAP__capabilities.SearchRestrictions">
+                <Record>
+                    <PropertyValue Property="Searchable" Bool="false"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.InsertRestrictions">
+                <Record>
+                    <PropertyValue Property="Insertable" Bool="false"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                <Record>
+                    <PropertyValue Property="Deletable" Bool="false"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                <Record>
+                    <PropertyValue Property="Updatable" Bool="false"/>
+                    <PropertyValue Property="NonUpdatableNavigationProperties">
+                        <Collection>
+                            <PropertyPath>_DigitalVehSlsOrdConfign</PropertyPath>
+                            <PropertyPath>_DigitalVehSlsOrdItemTP_2</PropertyPath>
+                        </Collection>
+                    </PropertyValue>
+                    <PropertyValue Property="QueryOptions">
+                        <Record>
+                            <PropertyValue Property="SelectSupported" Bool="true"/>
+                        </Record>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.FilterRestrictions">
+                <Record>
+                    <PropertyValue Property="FilterExpressionRestrictions">
+                        <Collection>
+                            <Record>
+                                <PropertyValue Property="Property" PropertyPath="CharcFromAmount"/>
+                                <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                            </Record>
+                        </Collection>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
+        </Annotations>
+        <Annotations Target="SAP__self.Container">
+            <Annotation Term="SAP__CodeList.CurrencyCodes">
+                <Record>
+                    <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                    <PropertyValue Property="CollectionPath" String="Currencies"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                <Record>
+                    <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                    <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            <Annotation Term="SAP__capabilities.FilterFunctions">
+                <Collection>
+                    <String>eq</String>
+                    <String>ne</String>
+                    <String>gt</String>
+                    <String>ge</String>
+                    <String>lt</String>
+                    <String>le</String>
+                    <String>and</String>
+                    <String>or</String>
+                    <String>contains</String>
+                    <String>startswith</String>
+                    <String>endswith</String>
+                    <String>any</String>
+                    <String>all</String>
+                </Collection>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.SupportedFormats">
+                <Collection>
+                    <String>application/json</String>
+                    <String>application/pdf</String>
+                </Collection>
+            </Annotation>
+            <Annotation Term="SAP__PDF.Features">
+                <Record>
+                    <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                    <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                    <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                    <PropertyValue Property="Border" Bool="true"/>
+                    <PropertyValue Property="CoverPage" Bool="true"/>
+                    <PropertyValue Property="FitToPage" Bool="true"/>
+                    <PropertyValue Property="FontName" Bool="true"/>
+                    <PropertyValue Property="FontSize" Bool="true"/>
+                    <PropertyValue Property="HeaderFooter" Bool="true"/>
+                    <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                    <PropertyValue Property="Margin" Bool="true"/>
+                    <PropertyValue Property="Padding" Bool="true"/>
+                    <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                    <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    <PropertyValue Property="Signature" Bool="true"/>
+                    <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                    <PropertyValue Property="Treeview" Bool="true"/>
+                    <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+            <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/SalesDocument">
+            <Annotation Term="SAP__core.Immutable"/>
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Sales Document"/>
+            <Annotation Term="SAP__common.Heading" String="Sales Doc."/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN_VA"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/SalesDocumentItem">
+            <Annotation Term="SAP__core.Immutable"/>
+            <Annotation Term="SAP__common.IsDigitSequence"/>
+            <Annotation Term="SAP__common.Label" String="Sales Document Item"/>
+            <Annotation Term="SAP__common.Heading" String="SDItem"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=POSNR_VA"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/Batch">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Batch"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Batch Number"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CHARG_D"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/Plant">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Plant"/>
+            <Annotation Term="SAP__common.Heading" String="Plnt"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Plant (Own or External)"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_EXT"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/Material">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Material"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/ConfigurationNumber">
+            <Annotation Term="SAP__common.IsDigitSequence"/>
+            <Annotation Term="SAP__common.Label" String="Configuration"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CUOBJ_VA"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/SoldToParty">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Sold-to Party"/>
+            <Annotation Term="SAP__common.Heading" String="Sold-to"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KUNAG"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/BillToParty">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Bill-to Party"/>
+            <Annotation Term="SAP__common.Heading" String="Bill-to"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/PayerParty">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Payer"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KUNRG"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/ShipToParty">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Ship-to Party"/>
+            <Annotation Term="SAP__common.Heading" String="Ship-to"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KUNWE"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/SalesOrganization">
+            <Annotation Term="SAP__common.Text" Path="SalesOrganizationName"/>
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Sales Organization"/>
+            <Annotation Term="SAP__common.Heading" String="SOrg."/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/SalesOrganizationName">
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.Label" String="Sales Organization Description"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/DistributionChannel">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Distribution Channel"/>
+            <Annotation Term="SAP__common.Heading" String="DChl"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTWEG"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/DistributionChannelName">
+            <Annotation Term="SAP__common.Text" Path="DistributionChannelName"/>
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.Label" String="Distribution Channel Description"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/OrganizationDivision">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Division"/>
+            <Annotation Term="SAP__common.Heading" String="Dv"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SPART"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/DivisionName">
+            <Annotation Term="SAP__common.Text" Path="DivisionName"/>
+            <Annotation Term="SAP__core.Computed"/>
+            <Annotation Term="SAP__common.Label" String="Division Description"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/SalesOrderType">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Sales Document Type"/>
+            <Annotation Term="SAP__common.Heading" String="SaTy"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUART"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/TotalNetAmount">
+            <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+            <Annotation Term="SAP__common.Label" String="Net Value"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Net Value of the Sales Document in Document Currency"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=NETWR_AK"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/TransactionCurrency">
+            <Annotation Term="SAP__common.IsCurrency"/>
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Document Currency"/>
+            <Annotation Term="SAP__common.Heading" String="Crcy"/>
+            <Annotation Term="SAP__common.QuickInfo" String="SD Document Currency"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WAERK"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/RequestedQuantity">
+            <Annotation Term="SAP__measures.Unit" Path="RequestedQuantityUnit"/>
+            <Annotation Term="SAP__common.Label" String="Requested Quantity"/>
+            <Annotation Term="SAP__common.Heading" String="Reqd Qty"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=REQD_QTY"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/RequestedQuantityUnit">
+            <Annotation Term="SAP__common.IsUnit"/>
+            <Annotation Term="SAP__common.Label" String="Requested Qty Unit"/>
+            <Annotation Term="SAP__common.Heading" String="RQ Unit"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Unit of the Requested Quantity"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=REQD_QTY_UNIT"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/DigitalVehicleReferenceID">
+            <Annotation Term="SAP__common.IsUpperCase"/>
+            <Annotation Term="SAP__common.Label" String="Digital.Veh.Ref"/>
+            <Annotation Term="SAP__common.Heading" String="Digital Vehicle Reference ID"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Digital Vehicle Reference ID"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/_DigitalVehSlsOrdConfignTP">
+            <Annotation Term="SAP__common.Composition"/>
+        </Annotations>
+        <Annotations Target="SAP__self.Container/DigitalVehicleSlsOrdItem_2">
+            <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                <Record>
+                    <PropertyValue Property="RestrictedProperties">
+                        <Collection>
+                            <Record>
+                                <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_DigitalVehSlsOrdConfignTP"/>
+                                <PropertyValue Property="InsertRestrictions">
+                                    <Record>
+                                        <PropertyValue Property="Insertable" Bool="true"/>
+                                    </Record>
+                                </PropertyValue>
+                            </Record>
+                        </Collection>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.SearchRestrictions">
+                <Record>
+                    <PropertyValue Property="Searchable" Bool="false"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                <Record>
+                    <PropertyValue Property="NonUpdatableProperties">
+                        <Collection>
+                            <PropertyPath>SalesDocument</PropertyPath>
+                            <PropertyPath>SalesDocumentItem</PropertyPath>
+                        </Collection>
+                    </PropertyValue>
+                    <PropertyValue Property="Updatable" Bool="false"/>
+                    <PropertyValue Property="NonUpdatableNavigationProperties">
+                        <Collection>
+                            <PropertyPath>_DigitalVehSlsOrdConfignTP</PropertyPath>
+                        </Collection>
+                    </PropertyValue>
+                    <PropertyValue Property="QueryOptions">
+                        <Record>
+                            <PropertyValue Property="SelectSupported" Bool="true"/>
+                        </Record>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                <Record>
+                    <PropertyValue Property="Deletable" Bool="false"/>
+                </Record>
+            </Annotation>
+            <Annotation Term="SAP__capabilities.FilterRestrictions">
+                <Record>
+                    <PropertyValue Property="FilterExpressionRestrictions">
+                        <Collection>
+                            <Record>
+                                <PropertyValue Property="Property" PropertyPath="SalesOrderType"/>
+                                <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                            </Record>
+                            <Record>
+                                <PropertyValue Property="Property" PropertyPath="TotalNetAmount"/>
+                                <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                            </Record>
+                            <Record>
+                                <PropertyValue Property="Property" PropertyPath="RequestedQuantity"/>
+                                <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                            </Record>
+                        </Collection>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type">
+            <Annotation Term="SAP__common.Label" String="Digital Vehicle Sales Order"/>
+            <Annotation Term="SAP__common.SemanticKey">
+                <Collection>
+                    <PropertyPath>SalesDocumentItem</PropertyPath>
+                    <PropertyPath>SalesDocument</PropertyPath>
+                </Collection>
+            </Annotation>
+            <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/CharcValue">
+            <Annotation Term="SAP__common.Label" String="Characteristic Value"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/CharcFromDate">
+            <Annotation Term="SAP__common.Label" String="Lower Boundary for Date-Interval"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/CharcFromTime">
+            <Annotation Term="SAP__common.Label" String="Lower Boundary for Time-Interval"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehSlsOrdConfignVal_Type/CharcFromNumericValue">
+            <Annotation Term="SAP__common.Label" String="Value from"/>
+            <Annotation Term="SAP__common.Heading" String="Val from"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Internal floating point from"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/VMSVehicleUUID">
+            <Annotation Term="SAP__common.Label" String="Vehicle GUID"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Vehicle GUID (Globally Unique IDentifier)"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/SoldToPartyName">
+            <Annotation Term="SAP__common.Label" String="Name of Customer"/>
+            <Annotation Term="SAP__common.Heading" String="Customer"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/BillToPartyName">
+            <Annotation Term="SAP__common.Label" String="Name of Customer"/>
+            <Annotation Term="SAP__common.Heading" String="Customer"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/PayerPartyName">
+            <Annotation Term="SAP__common.Label" String="Name of Customer"/>
+            <Annotation Term="SAP__common.Heading" String="Customer"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/ShipToPartyName">
+            <Annotation Term="SAP__common.Label" String="Name of Customer"/>
+            <Annotation Term="SAP__common.Heading" String="Customer"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/CreationDate">
+            <Annotation Term="SAP__common.Label" String="Created On"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Record Created On"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/SalesOrderDate">
+            <Annotation Term="SAP__common.Label" String="Document Date"/>
+            <Annotation Term="SAP__common.Heading" String="Doc. Date"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Document Date (Date Received/Sent)"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUDAT"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/RequestedDeliveryDate">
+            <Annotation Term="SAP__common.Label" String="Requested Delivery Date"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=REQD_DELIVERY_DATE"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/PurchaseOrderByCustomer">
+            <Annotation Term="SAP__common.Label" String="Customer Reference"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BSTKD"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/CustomerPurchaseOrderDate">
+            <Annotation Term="SAP__common.Label" String="Customer Ref. Date"/>
+            <Annotation Term="SAP__common.Heading" String="CustRefDat"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Customer Reference Date"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BSTDK"/>
+        </Annotations>
+        <Annotations Target="SAP__self.A_DigitalVehicleSlsOrdItem_2_Type/ConfirmedDeliveryDate">
+            <Annotation Term="SAP__common.Label" String="Delivery Date"/>
+            <Annotation Term="SAP__common.Heading" String="Deliv. Date"/>
+            <Annotation Term="SAP__common.QuickInfo" String="Schedule Line Date"/>
+            <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=EDATU"/>
+        </Annotations>
+    </Schema>
+</edmx:DataServices>
+</edmx:Edmx>
